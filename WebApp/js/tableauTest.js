@@ -1,40 +1,45 @@
 var driver = {
-    complicate : false,
-    path : "shared&#47;33SF8BXFP",
-    static_image : "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;33&#47;33SF8BXFP&#47;1.png",
-    width: '1000px',
-    height: '827px'
+    realName: '#driver',
+    complicate: true,
+    name: "Sixt_Dashboards&#47;Driver",
+    static_image: "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Driver&#47;1.png",
+    width: '650px',
+    height: '887px'
 };
 
 var passenger = {
-    complicate : true,
-    name : "ALTNATION&#47;AltNation",
-    static_image : "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AL&#47;ALTNATION&#47;AltNation&#47;1.png",
-    width: '1450px',
-    height: '2527px'
+    realName: '#passenger',
+    complicate: true,
+    name: "Sixt_Dashboards&#47;User",
+    static_image: "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1.png",
+    width: '650px',
+    height: '887px'
 };
 
 var stuff = {
-    complicate : true,
-    name : "StarMap_1&#47;Dashboard3",
-    static_image : "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StarMap_1&#47;Dashboard3&#47;1.png",
-    width: '1400px',
-    height: '827px'
+    realName: '#stuff',
+    complicate: true,
+    name: "Sixt_Dashboards&#47;Staff",
+    static_image: "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Staff&#47;1.png",
+    width: '1200px',
+    height: '1027px'
 };
 
-function changeDashboard(member){
-    var divElement = document.getElementById('viz1542464115990');
+function changeDashboard(member) {
+    $('#channels li').removeClass('selected');
+    $(member.realName).addClass('selected');
+    var divElement = document.getElementById('dashboard');
     var str = '<object class="tableauViz" style="display:none;">' +
         '<param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />' +
         '<param name="embed_code_version" value="3" />';
-    if(member.complicate){
+    if (member.complicate) {
         str += '<param name="site_root" value="" />' +
-        '<param name="name" value="' + member.name + '" />' +
-        '<param name="tabs" value="no" />';
-    }else{
+            '<param name="name" value="' + member.name + '" />' +
+            '<param name="tabs" value="no" />';
+    } else {
         str += '<param name="path" value="' + member.path + '" />'
-    }     
-        str += '<param name="toolbar" value="yes" />' +
+    }
+    str += '<param name="toolbar" value="yes" />' +
         '<param name="static_image" value="' + member.static_image + '" />' +
         '<param name="animate_transition" value="yes" />' +
         '<param name="display_static_image" value="yes" />' +

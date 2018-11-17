@@ -15,6 +15,12 @@
 
     <script src="js/tableauTest.js"></script>
 
+    <script>
+            $(function() {
+                changeDashboard(driver);
+            })
+        </script>
+
 </head>
 
 <body>
@@ -24,19 +30,19 @@
         </div>
     </div>
 
-    <div class='control-bar-left'>
+    <div class='control-bar-left' id='channels'>
         <ul>
-            <li onclick="changeDashboard(driver)">Driver</li>
-            <li onclick="changeDashboard(passenger)">Passenger</li>
-            <li onclick="changeDashboard(stuff)">Stuff</li>
+            <li id='driver' onclick="changeDashboard(driver)">Driver</li>
+            <li id='passenger' onclick="changeDashboard(passenger)">Passenger</li>
+            <li id='stuff' onclick="changeDashboard(stuff)">Stuff</li>
         </ul>
     </div>
 
     <div class='container-right'>
 
-        <div class='tableauPlaceholder' id='viz1542464115990' style='position: relative'>
+        <div class='tableauPlaceholder' id='dashboard' style='position: relative'>
             <noscript>
-                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AL&#47;ALTNATION&#47;AltNation&#47;1_rss.png'
+                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Driver&#47;1_rss.png'
                         style='border: none' />
                 </a>
             </noscript>
@@ -55,16 +61,6 @@
                 <param name='display_count' value='yes' />
             </object>
         </div>
-
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1542464115990');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width = '1450px';
-            vizElement.style.height = '2527px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
     </div>
 
 </body>
