@@ -15,8 +15,8 @@ data class CarpoolOffer(
     var startDate: Long,
     @ColumnInfo(name = MAX_PASSENGERS_COLUMN) var maxPassengers: Int,
     var pricePerPassenger: Int,
-    @ColumnInfo(name = ID_COLUMN)
     val carRentalId: Int,
+    @ColumnInfo(name = ID_COLUMN)
     @PrimaryKey
     var id: Int = 0
 ) {

@@ -1,9 +1,8 @@
 package de.hackatum2018.sixtcarpool.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import de.hackatum2018.sixtcarpool.R
-import java.lang.IllegalArgumentException
 
 class OpenCarpoolActivity : AppCompatActivity() {
 
@@ -11,12 +10,12 @@ class OpenCarpoolActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_carpool)
 
-        val id = intent.getStringExtra(RENTAL_ID)
-        if(id.isEmpty()) {
+        val id = intent.getIntExtra(RENTAL_ID, 0)
+        if (id == 0) {
             throw IllegalArgumentException("Expected rental id")
         }
 
-        if(savedInstanceState == null)  {
+        if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.open_carpool_fragment_container, OpenCarpoolFragment.newInstance(id))
