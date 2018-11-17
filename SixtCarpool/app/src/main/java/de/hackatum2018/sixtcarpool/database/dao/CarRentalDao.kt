@@ -10,7 +10,7 @@ import io.reactivex.Flowable
  * Created by Aleksandr Kim on 17 Nov, 2018 1:59 PM for SixtCarpool
  */
 @Dao
-abstract class MyRentalDao : BaseDao<CarRental>() {
+abstract class CarRentalDao : BaseDao<CarRental>() {
 
     @Query("SELECT * FROM " + CarRental.TABLE_NAME)
     abstract fun getAll(): Flowable<List<CarRental>>
