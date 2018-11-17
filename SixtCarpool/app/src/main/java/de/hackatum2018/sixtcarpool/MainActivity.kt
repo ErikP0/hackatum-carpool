@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
+import de.hackatum2018.sixtcarpool.activities.DashboardFragment
 import de.hackatum2018.sixtcarpool.activities.RentalListFragment
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
                     RentalListFragment.newInstance(),
                     "My rentals"
                 )
+            }
+            R.id.menu_dashboard -> fragments.computeIfAbsent(R.id.menu_dashboard) {
+                FragmentInfo(DashboardFragment.newInstance(), "Dashboard")
             }
             else -> throw IllegalArgumentException("Unknown id $menuItemId")
         }

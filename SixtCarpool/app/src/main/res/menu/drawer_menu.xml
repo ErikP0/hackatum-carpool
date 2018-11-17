@@ -9,6 +9,9 @@
                 android:id="@+id/menu_my_carpool"
                 android:icon="@drawable/ic_airport_shuttle_black_24dp"
                 android:title="My Carpool" />
+        <item android:id="@+id/menu_dashboard"
+              android:icon="@drawable/ic_data_usage_black_24dp"
+              android:title="Dashboard"/>
     </group>
 
 
