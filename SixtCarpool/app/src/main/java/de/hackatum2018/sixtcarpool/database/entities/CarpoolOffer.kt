@@ -8,15 +8,19 @@ import android.arch.persistence.room.PrimaryKey
  * Created by Aleksandr Kim on 17 Nov, 2018 1:22 PM for SixtCarpool
  */
 @Entity(tableName = CarpoolOffer.TABLE_NAME)
-data class CarpoolOffer(var placeFrom: String,
-                        var placeTo: String,
-                        var startTime: Long,
-                        var startDate: Long,
-                        @ColumnInfo(name = MAX_PASSENGERS_COLUMN) var maxPassengers: Int,
-                        var pricePerPassenger: Int,
-                        @ColumnInfo(name = ID_COLUMN) @PrimaryKey val id: Int,
-                        val carRentalId: Int
+data class CarpoolOffer(
+    var placeFrom: String,
+    var placeTo: String,
+    var startTime: Long,
+    var startDate: Long,
+    @ColumnInfo(name = MAX_PASSENGERS_COLUMN) var maxPassengers: Int,
+    var pricePerPassenger: Int,
+    @ColumnInfo(name = ID_COLUMN)
+    val carRentalId: Int,
+    @PrimaryKey
+    var id: Int = 0
 ) {
+
     companion object {
         const val TABLE_NAME = "carpool_offers"
         const val ID_COLUMN = "carpool_offer_id"

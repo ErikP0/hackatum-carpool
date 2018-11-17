@@ -7,6 +7,7 @@ import de.hackatum2018.sixtcarpool.database.dao.CarpoolOfferDao
 import de.hackatum2018.sixtcarpool.database.dao.MyRentalDao
 import de.hackatum2018.sixtcarpool.database.entities.CarRental
 import de.hackatum2018.sixtcarpool.database.entities.CarpoolOffer
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 /**
@@ -30,13 +31,17 @@ class Repository(private val appDatabase: AppDatabase) {
         return myRentalDao.getById(id)
     }
 
-    fun getCarpoolOffersAll (): Flowable<List<CarpoolOffer>> {
+    fun getCarpoolOffersAll(): Flowable<List<CarpoolOffer>> {
         Log.d(TAG, "getMyRentalsAll: ")
         return carpoolOfferDao.getAll()
     }
 
     fun getCarpoolOfferById(id: Int): Flowable<CarpoolOffer?> {
         return carpoolOfferDao.getById(id)
+    }
+
+    fun addCarpoolOffer(carpoolOffer: CarpoolOffer): Completable = Completable.fromAction {
+        carpoolOfferDao.add(carpoolOffer)
     }
 
     companion object : SingletonHolder<AppDatabase, Repository>(::Repository) {

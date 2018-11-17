@@ -14,7 +14,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import de.hackatum2018.sixtcarpool.R
-import de.hackatum2018.sixtcarpool.database.entities.MyCarRentalEntity
+import de.hackatum2018.sixtcarpool.Repository
+import de.hackatum2018.sixtcarpool.database.AppDatabase
+import de.hackatum2018.sixtcarpool.database.entities.CarRental
 import de.hackatum2018.sixtcarpool.subscribeInLifecycle
 import de.hackatum2018.sixtcarpool.utils.ItemListAdapter
 import de.hackatum2018.sixtcarpool.viewmodels.RentalListViewModel
@@ -30,7 +32,8 @@ class RentalListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val factory = RentalListViewModel.getFactory()
+        val repository = Repository.getInstance(AppDatabase.getInstance(context!!))
+        val factory = RentalListViewModel.getFactory(repository)
         viewmodel = ViewModelProviders.of(this, factory).get(RentalListViewModel::class.java)
 
     }
@@ -41,7 +44,7 @@ class RentalListFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_rental_list, container, false)
         val list = rootView.rental_car_list
-        val adapter = ItemListAdapter<MyCarRentalEntity, MyCarRentalViewHolder>(
+        val adapter = ItemListAdapter<CarRental, MyCarRentalViewHolder>(
             context = context!!,
             layoutId = R.layout.rental_car_list_content,
             viewHolderProvider = ::MyCarRentalViewHolder,
