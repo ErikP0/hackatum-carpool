@@ -31,6 +31,7 @@ li {
     height: 48px;
     padding: 12px;
     font-size: 24px;
+    top: 64px;
     border-bottom: 1px solid #F5F5F5;
     position: relative;
 }
@@ -42,6 +43,7 @@ body {
 
 .header-top{
     background-color: #111119;
+    z-index: 100;
 }
 
 .header{
@@ -50,20 +52,31 @@ body {
     background-color: transparent url(/img/sixt_logo_horizontal_white.svg);
     width: 100%;
     height: 64px;
+    z-index: 100;
 }
 
 .control-bar-left{
     position: absolute;
     height: 100%;
     width: 20%;
+    top: 0px;
     background-color: #FF7D19;
+    z-index: -1;
 }
 
-/*.container-right{
-    align-items: center;
-}*/
+.container-right{
+    position: absolute;
+    top: 64px;
+    bottom: 0px;
+    left: 20%;
+    width: 80%;
+    overflow-y: auto;
+}
 
+/* FIXME relative position*/
 .tableauPlaceholder {
+    position: absolute;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
