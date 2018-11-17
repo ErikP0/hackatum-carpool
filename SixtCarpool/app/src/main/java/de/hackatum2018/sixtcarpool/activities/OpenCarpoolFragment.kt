@@ -30,7 +30,12 @@ class OpenCarpoolFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() =
-            OpenCarpoolFragment()
+        fun newInstance(id: String) =
+            OpenCarpoolFragment().apply {
+                arguments = Bundle().apply {
+                    putString(OpenCarpoolActivity.RENTAL_ID, id)
+                }
+
+            }
     }
 }
