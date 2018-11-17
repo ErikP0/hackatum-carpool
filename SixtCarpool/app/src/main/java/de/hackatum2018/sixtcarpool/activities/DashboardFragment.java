@@ -1,6 +1,7 @@
 package de.hackatum2018.sixtcarpool.activities;
 
 
+import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,17 +11,18 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.ConsoleMessage;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.webkit.*;
 import de.hackatum2018.sixtcarpool.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class DashboardFragment extends Fragment {
 
     WebView webView;
-    Member driver = new Member("Sixt_Dashboards&#47;Driver", "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Driver&#47;1.png", 1200, 1027);
-    Member passenger = new Member("Sixt_Dashboards&#47;User", "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1.png", 650, 887);
+    Member driver = new Member("Sixt_Dashboards/Driver", "https://public.tableau.com/static/images/Si/Sixt_Dashboards/Driver/1.png", 1200, 1027);
+    Member passenger = new Member("Sixt_Dashboards/User", "https://public.tableau.com/static/images/Si/Sixt_Dashboards/User/1.png", 650, 887);
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -58,12 +60,55 @@ public class DashboardFragment extends Fragment {
                 Log.d("WebViewSixt", consoleMessage.message());
                 return super.onConsoleMessage(consoleMessage);
             }
-            
+
+        });
+        webView.setWebViewClient(new WebViewClient(){
+            private int running = 0;
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView webView, String urlNewString) {
+                running++;
+                webView.loadUrl(urlNewString);
+                return true;
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                running++;
+                String url = request.getUrl().toString();
+                Pattern pattern = Pattern.compile("scriptElement.src='(.*)");
+                Matcher matcher = pattern.matcher(url);
+                //Log.d("WebViewSixt", "shouldOverrideUrlLoading: 1. redirect to " + url);
+                if(matcher.find())
+                    url = matcher.group(1);
+                //Log.d("WebViewSixt", "shouldOverrideUrlLoading: redirect to " + url);
+                webView.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                running = Math.max(running, 1);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if(--running == 0) { // just "running--;" if you add a timer.
+                    // TODO: finished... if you want to fire a method.
+                    //Log.d("WebViewSixt", "onPageFinished: ");
+                }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                //Log.d("WebViewSixt", "onReceivedError: " + error.toString());
+                super.onReceivedError(view, request, error);
+            }
         });
         webView.getSettings().setDomStorageEnabled(true);
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         String s = "<html><body style='margin:0;padding:0;'><div class='tableauPlaceholder' id='dashboard'>" +
-                "<noscript><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;33&#47;33SF8BXFP&#47;1_rss.png'" +
+                "<noscript><img alt=' ' src='https://public.tableau.com/static/images/33/33SF8BXFP/1_rss.png'" +
                 "style='border: none' /></noscript>" +
                 "<object class='tableauViz' style='display:none;'>" +
                 "<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />" +
@@ -85,7 +130,7 @@ public class DashboardFragment extends Fragment {
                 "vizElement.style.width = '" + driver.getWidth() + "';" +
                 "vizElement.style.height = '" + driver.getHeight() + "';" +
                 "var scriptElement = document.createElement('script');" +
-                "scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';" +
+                "scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';" +
                 "vizElement.parentNode.insertBefore(scriptElement, vizElement);" +
                 "</script></body></html>";
         webView.loadData(s, "text/html", null);
