@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/menu_my_rentals"
+                android:icon="@drawable/ic_directions_car_black_24dp"
+                android:title="My Rentals" />
+        <item
+                android:id="@+id/menu_my_carpool"
+                android:icon="@drawable/ic_airport_shuttle_black_24dp"
+                android:title="My Carpool" />
+        <item android:id="@+id/menu_dashboard"
+              android:icon="@drawable/ic_data_usage_black_24dp"
+              android:title="Dashboard"/>
+    </group>
+
+
+</menu>

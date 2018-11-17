@@ -1,6 +1,7 @@
 package de.hackatum2018.sixtcarpool
 
 import android.util.Log
+
 import de.hackatum2018.sixtcarpool.database.AppDatabase
 import de.hackatum2018.sixtcarpool.database.dao.CarRentalDao
 import de.hackatum2018.sixtcarpool.database.dao.CarpoolOfferDao
@@ -69,6 +70,10 @@ class Repository(appDatabase: AppDatabase) {
 
     fun clearCarRentalDb(): Completable {
         return Completable.fromCallable { carRentalDao.deleteAll() }.commonSchedulers()
+    }
+
+    fun addCarpoolOffer(carpoolOffer: CarpoolOffer): Completable = Completable.fromAction {
+        carpoolOfferDao.add(carpoolOffer)
     }
 
     companion object : SingletonHolder<AppDatabase, Repository>(::Repository) {

@@ -30,8 +30,20 @@ data class CarRental(@ColumnInfo(name = ID) @PrimaryKey val id: Int,
         const val CARPOOL_OFFER_ID = "carpool_offer_id"
 
         fun dummy(rentalId: Int): CarRental {
-            return CarRental(rentalId, "my rented car", 4, "", 1,
-                "center", 1234, 2, "campus", 2345, 100, null)
+            return CarRental(
+                rentalId,
+                "Chevo",
+                4,
+                "http://www.sixtblog.com/wp-content/uploads/2015/01/bmw_x3-sixt-rental-car_d31f5b.png",
+                1,
+                "center",
+                1234,
+                2,
+                "campus",
+                2345,
+                100,
+                null
+            )
         }
     }
 

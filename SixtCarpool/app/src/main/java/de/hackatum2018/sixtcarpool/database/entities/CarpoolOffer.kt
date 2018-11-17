@@ -14,7 +14,7 @@ data class CarpoolOffer(@ColumnInfo(name = PLACE_FROM_COLUMN) var placeFrom: Str
                         @ColumnInfo(name = START_DATE_COLUMN) var startDate: Long,
                         @ColumnInfo(name = MAX_PASSENGERS_COLUMN) var maxPassengers: Int,
                         @ColumnInfo(name = PRICE_PER_PASSENGER_COLUMN) var pricePerPassenger: Int,
-                        @ColumnInfo(name = ID_COLUMN) @PrimaryKey val id: Int,
+                        @ColumnInfo(name = ID_COLUMN) @PrimaryKey val id: Int = 0,
                         @ColumnInfo(name = CAR_RENTAL_ID) val carRentalId: Int
 ) {
     companion object {
