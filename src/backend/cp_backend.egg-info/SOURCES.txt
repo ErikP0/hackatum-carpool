@@ -15,6 +15,7 @@ cp_backend.egg-info/top_level.txt
 cp_backend/api/__init__.py
 cp_backend/api/views.py
 cp_backend/api/resources/__init__.py
+cp_backend/api/resources/rentals.py
 cp_backend/api/resources/user.py
 cp_backend/auth/__init__.py
 cp_backend/auth/helpers.py
@@ -23,4 +24,6 @@ cp_backend/commons/__init__.py
 cp_backend/commons/pagination.py
 cp_backend/models/__init__.py
 cp_backend/models/blacklist.py
+cp_backend/models/carpool.py
+cp_backend/models/mock.py
 cp_backend/models/user.py

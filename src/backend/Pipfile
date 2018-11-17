@@ -16,6 +16,7 @@ passlib = "*"
 tox = "*"
 "e1839a8" = {path = ".", editable = true}
 flask-migrate = "*"
+requests = "*"
 
 [dev-packages]
 pylint = "*"
