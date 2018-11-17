@@ -1,7 +1,6 @@
 from cp_backend.extensions import db
 from datetime import datetime
-
-from flask import Flask
+from dateutil import parser
 
 import enum
 import requests
@@ -32,28 +31,26 @@ class CarPool(db.Model):
 
     def __init__(self, **kwargs):
         super(CarPool, self).__init__(**kwargs)
-        self.created_on = datetime.now()
 
     def validate(self):
-        #TODO: constraint checking via rental API
-        app = Flask(__name__)
-        result = requests.get("{0}/rentals/{1}".format(app.config["RENTAL_API_BASE"], rental_id))
+        pdb.set_trace()
+        result = requests.get("{0}/rentals/{1}".format("http://localhost:5000/api/v1", self.rental_id))
 
         if result.status_code != 200:
             raise ValueError("Supplied rental ID not found")
 
         rental = json.loads(result.content)
 
-        if self.start_date < rental["pickup_time"]:
+        if self.start_date < parser.parse(rental["rental"]["pickup_time"]):
             raise ValueError("Trip start time can not be before pick up time")
         
-        if self.end_date > rental["return_time"]:
+        if self.end_date > parser.parse(rental["rental"]["return_time"]):
             raise ValueError("Trip end time can not be after return time")
         
-        if self.car_model != rental["car_name"]:
+        if self.car_model != rental["rental"]["car_name"]:
             raise ValueError("Car models do not match")
         
-        passenger_constraint = int(rental["max_passengers"]) - 1
+        passenger_constraint = int(rental["rental"]["max_passengers"]) - 1
         if self.max_seats > passenger_constraint:
             raise ValueError("Maximum seat count of {0} exceeded".format(passenger_constraint))
 

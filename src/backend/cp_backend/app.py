@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, g
 
 from cp_backend import auth, api
 from cp_backend.extensions import db, jwt, migrate

@@ -11,6 +11,6 @@ api = Api(blueprint)
 api.add_resource(UserResource, '/users/<int:user_id>')
 api.add_resource(UserList, '/users')
 
-api.add_resource(RentalResource, '/rentals/<int:rental_id>')
+api.add_resource(RentalResource, '/rentals/<string:rental_id>')
 api.add_resource(RentalList, '/rentals')
 api.add_resource(FutureRentalByUser, '/rentals/by_user/<int:user_id>')

@@ -22,6 +22,9 @@ cp_backend/auth/helpers.py
 cp_backend/auth/views.py
 cp_backend/commons/__init__.py
 cp_backend/commons/pagination.py
+cp_backend/generators/__init__.py
+cp_backend/generators/rentals.py
+cp_backend/generators/users.py
 cp_backend/models/__init__.py
 cp_backend/models/blacklist.py
 cp_backend/models/carpool.py

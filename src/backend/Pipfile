@@ -17,6 +17,7 @@ tox = "*"
 "e1839a8" = {path = ".", editable = true}
 flask-migrate = "*"
 requests = "*"
+python-dateutil = "*"
 
 [dev-packages]
 pylint = "*"
