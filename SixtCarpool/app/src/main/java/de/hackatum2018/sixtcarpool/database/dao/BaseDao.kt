@@ -7,10 +7,10 @@ import android.arch.persistence.room.*
  */
 @Dao
 abstract class BaseDao<T> {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun add(t: T): Long
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun add(vararg t: T): LongArray
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
