@@ -72,7 +72,7 @@ class RentalListFragment : Fragment() {
                     startActivity(intent)
                 }
 
-                carpooledCheck.visibility = if (myCarRental.carpoolOffer != null) View.VISIBLE else View.GONE
+                carpooledCheck.visibility = if (myCarRental.isOffered) View.VISIBLE else View.GONE
             }
         )
         list.adapter = adapter

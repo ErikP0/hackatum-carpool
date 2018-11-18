@@ -12,18 +12,22 @@ import de.hackatum2018.sixtcarpool.activities.RentalListFragment
 import de.hackatum2018.sixtcarpool.activities.SearchCarpoolFragment
 import de.hackatum2018.sixtcarpool.database.AppDatabase
 import de.hackatum2018.sixtcarpool.database.entities.CarRental
-import de.hackatum2018.sixtcarpool.util.commonSchedulers
+import de.hackatum2018.sixtcarpool.database.entities.CarpoolOffer
+import io.reactivex.Completable
+import io.reactivex.schedulers.Schedulers
 
 class MainActivity : AppCompatActivity() {
     private val fragments: MutableMap<Int, FragmentInfo> = mutableMapOf()
 
     private lateinit var repository: Repository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        repository = Repository.getInstance(AppDatabase.getInstance(applicationContext))
+        val db = AppDatabase.getInstance(applicationContext)
+        repository = Repository.getInstance(db)
 
-        repository.clearCarRentalDb().commonSchedulers().subscribe {
+        repository.clearCarRentalDb().subscribeOn(Schedulers.io()).subscribe {
             Log.d(TAG, "carRentalDb is cleared ")
             debugAddRentals()
         }
@@ -69,19 +73,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun debugAddRentals() {
-        repository.addMyRental(listOf(CarRental.dummyWithOffer(0, 0), CarRental.dummy(1))).commonSchedulers()
+        val carpoolOfferDummy = CarpoolOffer.dummy(0, 2)
+        repository.addMyRental(CarRental.dummy(1)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 1 is inserted ") }
+        repository.addMyRental(CarRental.dummy(2)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 2 is inserted ") }
+        repository.addMyRental(CarRental.dummy(3)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 3 is inserted ") }
+        repository.addMyRental(CarRental.dummy(0))
+            .subscribeOn(Schedulers.io())
             .doOnError { t -> Log.d(TAG, "added error: ", t) }
-            .doOnComplete { debugShowAllRentalsLog() }
-            .subscribe { Log.d(TAG, "added car rental") }
+            .doOnComplete { Log.d(TAG, "added rentals Completed") }
+            .andThen(Completable.defer { repository.addCarpoolOfferAndUpdateLinks(carpoolOfferDummy) })
+            .subscribe {
+                Log.d(TAG, "added car rental and carpool offer")
+                debugShowAllRentalsLog()
+            }
     }
 
     private fun debugShowAllRentalsLog() {
-        repository.getMyRentalsAll().commonSchedulers()
-            .subscribe { it.forEach { Log.d(TAG, "all rentals: " + it + "\n") } }
+        repository.getMyRentalsAll().subscribeOn(Schedulers.io()).subscribe { it -> Log.d(TAG, "all rentals: " + it + "\n") }
+        repository.getPairsOfRentalsAndOffers(includeNull = true).subscribeOn(Schedulers.io()).subscribe { it ->
+            Log.d(TAG, "all pairs: " + it + "\n\n\n")
+        }
+//        repository.getPairsOfRentalsAndOffers(includeNull = false).subscribeOn(Schedulers.io()).subscribe { it ->
+//            Log.d(TAG, "only offers as pairs: " + it)
+//        }
     }
 
     companion object {
-        const val TAG = "MainActivity"
+        const val TAG = "MainActivityTUM"
     }
 
     private class FragmentInfo(val fragment: Fragment, val title: String)
