@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class DashboardFragment extends Fragment {
 
     WebView webView;
-    Member driver = new Member("Sixt_Dashboards/Driver", "https://public.tableau.com/static/images/Si/Sixt_Dashboards/Driver/1.png", 1200, 1027);
+    Member driver = new Member("Sixt_Dashboards/User", "https://public.tableau.com/static/images/Si/Sixt_Dashboards/User/1.png", 1200, 1027);
     Member passenger = new Member("Sixt_Dashboards/User", "https://public.tableau.com/static/images/Si/Sixt_Dashboards/User/1.png", 650, 887);
 
     public DashboardFragment() {
@@ -81,7 +81,7 @@ public class DashboardFragment extends Fragment {
                 //Log.d("WebViewSixt", "shouldOverrideUrlLoading: 1. redirect to " + url);
                 if(matcher.find())
                     url = matcher.group(1);
-                //Log.d("WebViewSixt", "shouldOverrideUrlLoading: redirect to " + url);
+                Log.d("WebViewSixt", "shouldOverrideUrlLoading: redirect to " + url);
                 webView.loadUrl(url);
                 return true;
             }
@@ -106,9 +106,12 @@ public class DashboardFragment extends Fragment {
             }
         });
         webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.setBackgroundColor(0);
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         String s = "<html><body style='margin:0;padding:0;'><div class='tableauPlaceholder' id='dashboard'>" +
-                "<noscript><img alt=' ' src='https://public.tableau.com/static/images/33/33SF8BXFP/1_rss.png'" +
+                "<noscript><img alt=' ' src='https://public.tableau.com/static/images/Si/Sixt_Dashboards/User/1_rss.png'" +
                 "style='border: none' /></noscript>" +
                 "<object class='tableauViz' style='display:none;'>" +
                 "<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />" +
