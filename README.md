@@ -24,6 +24,7 @@ The driver can decide whether he will give the passenger a ride or not.
 We used AWS as our hosting environment for back-end server. The programm is wroten in python. The application for the user is implemented in Kotlin and Java using android studio. The website for visualizing data is programmed with HTML/Javascript.
 
 ## Challenges we ran into
+* Combine application with tableau api
 
 ## Accomplishments that I'm proud of
 
