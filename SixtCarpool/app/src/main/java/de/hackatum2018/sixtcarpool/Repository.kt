@@ -72,9 +72,9 @@ class Repository(appDatabase: AppDatabase) {
         return Completable.fromCallable { carRentalDao.deleteAll() }.commonSchedulers()
     }
 
-    fun addCarpoolOffer(carpoolOffer: CarpoolOffer): Completable = Completable.fromAction {
-        carpoolOfferDao.add(carpoolOffer)
-    }
+//    fun addCarpoolOffer(carpoolOffer: CarpoolOffer): Completable = Completable.fromAction {
+//        carpoolOfferDao.add(carpoolOffer)
+//    }
 
     companion object : SingletonHolder<AppDatabase, Repository>(::Repository) {
         const val TAG = "RepositoryTUM"
