@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".activities.SearchCarpoolResultActivity">
         </activity>
+        <activity android:name=".activities.CarpoolDetailActivity">
+        </activity>
     </application>
 
 </manifest>

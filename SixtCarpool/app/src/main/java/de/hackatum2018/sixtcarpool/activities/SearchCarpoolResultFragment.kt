@@ -2,6 +2,7 @@ package de.hackatum2018.sixtcarpool.activities
 
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -66,6 +67,12 @@ class SearchCarpoolResultFragment : Fragment() {
                 returnLocationText.text = offer.placeTo
                 passengerText.text = "/${offer.maxPassengers}"
                 priceText.text = "${offer.pricePerPassenger}€"
+
+                card.setOnClickListener {
+                    val intent = Intent(activity, CarpoolDetailActivity::class.java)
+                    intent.putExtra(CarpoolDetailActivity.OFFER_ID, offer.id)
+                    startActivity(intent)
+                }
             }
         )
         list.adapter = adapter

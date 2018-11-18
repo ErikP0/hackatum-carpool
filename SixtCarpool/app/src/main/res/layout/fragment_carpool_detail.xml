@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.CarpoolDetailFragment">
+
+    <ScrollView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/carpool_detail_send_offer_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:id="@+id/carpool_detail_avatar"
+                       android:layout_gravity="center_horizontal"
+                       android:layout_margin="4dp"/>
+            <RatingBar
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/ratingBar" android:numStars="5"
+                    android:rating="3" android:stepSize="0.5"
+                    style="@style/Widget.AppCompat.RatingBar"/>
+
+            <TextView
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jesse Orangeman"
+                    android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginEnd="4dp"
+                      android:layout_marginStart="4dp"
+                      android:layout_marginBottom="4dp"
+                      android:text="Yo, Mr. White  is a good company for a trip, he knows his stuff, difficult to get bored. He is always on time and pay upfront. I just won't give 5 stars because I think he might be involved in some kind of illegal activities, you never know."/>
+            <View
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+            />
+
+            <TextView
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gus Fring"
+                    android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginEnd="4dp"
+                      android:layout_marginStart="4dp"
+                      android:layout_marginBottom="4dp"
+                      android:text="you are fired!"/>
+
+            <View
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+            />
+
+            <TextView
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gale Boetticher"
+                    android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginEnd="4dp"
+                      android:layout_marginStart="4dp"
+                      android:layout_marginBottom="4dp"
+                      android:text="W. W., my genius, my star."/>
+
+
+        </LinearLayout>
+    </ScrollView>
+    <Button
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:id="@+id/carpool_detail_send_offer_btn"
+            android:text="Send Request" style="@style/Widget.AppCompat.Button.Colored"/>
+
+</android.support.constraint.ConstraintLayout>
