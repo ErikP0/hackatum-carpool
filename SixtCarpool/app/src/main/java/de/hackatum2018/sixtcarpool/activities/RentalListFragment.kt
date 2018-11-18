@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.text.format.DateUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,14 +21,13 @@ import de.hackatum2018.sixtcarpool.database.entities.CarRental
 import de.hackatum2018.sixtcarpool.subscribeInLifecycle
 import de.hackatum2018.sixtcarpool.utils.ItemListAdapter
 import de.hackatum2018.sixtcarpool.viewmodels.RentalListViewModel
+import io.reactivex.BackpressureStrategy
 import kotlinx.android.synthetic.main.fragment_rental_list.view.*
 import kotlinx.android.synthetic.main.rental_car_list_content.view.*
 
 
 class RentalListFragment : Fragment() {
-
     private lateinit var viewmodel: RentalListViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +81,11 @@ class RentalListFragment : Fragment() {
             adapter.items = myRentalList
         })
 
+        viewmodel.pairsList.toFlowable(BackpressureStrategy.LATEST).subscribeInLifecycle(this, onNext = { pairs ->
+            Log.d(TAG, "pairs of all: " + pairs)
+
+        })
+
         return rootView
     }
 
@@ -90,6 +95,8 @@ class RentalListFragment : Fragment() {
         @JvmStatic
         fun newInstance() =
             RentalListFragment()
+
+        const val TAG = "RentalListFragment"
     }
 }
 

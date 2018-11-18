@@ -8,6 +8,7 @@ import de.hackatum2018.sixtcarpool.Repository
 class RentalListViewModel(repository: Repository) : ViewModel() {
 
     val rentalList = repository.getMyRentalsAll()
+    val pairsList = repository.getPairsOfRentalsAndOffers(true)
 
     companion object {
         fun getFactory(repository: Repository) = RentalListViewModelFactory(repository)

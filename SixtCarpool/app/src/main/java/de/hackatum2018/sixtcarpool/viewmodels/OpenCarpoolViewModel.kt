@@ -60,7 +60,7 @@ class OpenCarpoolViewModel(val rentalId: Int, private val repository: Repository
         }
     }
 
-    fun openToCarpool(): Completable = repository.addCarpoolOffer(CarpoolOffer(
+    fun openToCarpool(): Completable = repository.addCarpoolOfferAndUpdateLinks(CarpoolOffer(
         placeFrom = from,
         placeTo = to,
         carRentalId = rentalId,
