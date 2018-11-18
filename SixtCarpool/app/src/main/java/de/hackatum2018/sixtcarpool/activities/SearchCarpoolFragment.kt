@@ -1,7 +1,6 @@
 package de.hackatum2018.sixtcarpool.activities
 
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.arch.lifecycle.ViewModelProviders
@@ -11,10 +10,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
-
 import de.hackatum2018.sixtcarpool.R
 import de.hackatum2018.sixtcarpool.Repository
 import de.hackatum2018.sixtcarpool.database.AppDatabase
@@ -76,6 +73,8 @@ class SearchCarpoolFragment : Fragment() {
         searchButton.setOnClickListener {
             val intent = Intent(activity, SearchCarpoolResultActivity::class.java)
             intent.putExtra(SearchCarpoolResultActivity.WALKING_RADIUS, walkRadiusSeeker.progress)
+            intent.putExtra(SearchCarpoolResultActivity.FROM, viewmodel.from)
+            intent.putExtra(SearchCarpoolResultActivity.TO, viewmodel.to)
             startActivity(intent)
         }
         //only enable the search button if input is valid

@@ -27,12 +27,16 @@ typealias CarpoolOfferDetail = Pair<CarpoolOffer, CarRental>
 
 class SearchCarpoolResultFragment : Fragment() {
     private var radius: Int = 5
+    private lateinit var from: String
+    private lateinit var to: String
     private lateinit var viewmodel: SearchCarpoolResultViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             radius = it.getInt(SearchCarpoolResultActivity.WALKING_RADIUS)
+            from = it.getString(SearchCarpoolResultActivity.FROM)
+            to = it.getString(SearchCarpoolResultActivity.TO)
         }
         val repository = Repository.getInstance(AppDatabase.getInstance(context!!))
         val factory = SearchCarpoolResultViewModel.getFactory(repository)
@@ -86,7 +90,7 @@ class SearchCarpoolResultFragment : Fragment() {
 //            .setView(progressBar)
 //            .setNegativeButton(android.R.string.cancel, null)
 //            .show()
-        viewmodel.search(radius).subscribeInLifecycle(this, onSuccess = {
+        viewmodel.search(from, to, 0, radius).subscribeInLifecycle(this, onSuccess = {
             progressBar.visibility = View.GONE
             adapter.items = it
         })
@@ -98,10 +102,12 @@ class SearchCarpoolResultFragment : Fragment() {
 
 
         @JvmStatic
-        fun newInstance(walkRadius: Int) =
+        fun newInstance(from: String, to: String, walkRadius: Int) =
             SearchCarpoolResultFragment().apply {
                 arguments = Bundle().apply {
                     putInt(SearchCarpoolResultActivity.WALKING_RADIUS, walkRadius)
+                    putString(SearchCarpoolResultActivity.FROM, from)
+                    putString(SearchCarpoolResultActivity.TO, to)
                 }
             }
     }

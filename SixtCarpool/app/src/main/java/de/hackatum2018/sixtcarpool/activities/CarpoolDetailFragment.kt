@@ -36,6 +36,9 @@ class CarpoolDetailFragment : Fragment() {
         val avatarDrawable = avatarFactory.getRoundedAvatarDrawable(avatar)
         val avatarView = rootView.carpool_detail_avatar
         avatarView.setImageDrawable(avatarDrawable)
+
+        val button = rootView.carpool_detail_send_offer_btn
+        button.setOnClickListener { activity?.finish() }
         return rootView
     }
 
