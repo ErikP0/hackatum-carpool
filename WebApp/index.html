@@ -16,10 +16,10 @@
     <script src="js/tableauTest.js"></script>
 
     <script>
-            $(function() {
-                changeDashboard(driver);
-            })
-        </script>
+        $(function () {
+            changeDashboard(user);
+        })
+    </script>
 
 </head>
 
@@ -32,9 +32,9 @@
 
     <div class='control-bar-left' id='channels'>
         <ul>
-            <li id='driver' onclick="changeDashboard(driver)">Driver</li>
-            <li id='passenger' onclick="changeDashboard(passenger)">Passenger</li>
-            <li id='stuff' onclick="changeDashboard(stuff)">Stuff</li>
+            <!--<li id='driver' onclick="changeDashboard(driver)">Driver</li>-->
+            <li id='user' onclick="changeDashboard(user)">User</li>
+            <li id='staff' onclick="changeDashboard(staff)">Staff</li>
         </ul>
     </div>
 
@@ -42,7 +42,7 @@
 
         <div class='tableauPlaceholder' id='dashboard' style='position: relative'>
             <noscript>
-                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Driver&#47;1_rss.png'
+                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1_rss.png'
                         style='border: none' />
                 </a>
             </noscript>
@@ -50,10 +50,10 @@
                 <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                 <param name='embed_code_version' value='3' />
                 <param name='site_root' value='' />
-                <param name='name' value='ALTNATION&#47;AltNation' />
+                <param name='name' value='Sixt_Dashboards&#47;User' />
                 <param name='tabs' value='no' />
                 <param name='toolbar' value='yes' />
-                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AL&#47;ALTNATION&#47;AltNation&#47;1.png' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1.png' />
                 <param name='animate_transition' value='yes' />
                 <param name='display_static_image' value='yes' />
                 <param name='display_spinner' value='yes' />
@@ -64,6 +64,5 @@
     </div>
 
 </body>
-
 
 </html>

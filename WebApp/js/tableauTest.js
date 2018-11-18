@@ -7,17 +7,17 @@ var driver = {
     height: '887px'
 };
 
-var passenger = {
-    realName: '#passenger',
+var user = {
+    realName: '#user',
     complicate: true,
     name: "Sixt_Dashboards&#47;User",
     static_image: "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1.png",
-    width: '650px',
-    height: '887px'
+    width: '1200px',
+    height: '1027px'
 };
 
-var stuff = {
-    realName: '#stuff',
+var staff = {
+    realName: '#staff',
     complicate: true,
     name: "Sixt_Dashboards&#47;Staff",
     static_image: "https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;Staff&#47;1.png",
