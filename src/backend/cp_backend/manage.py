@@ -3,7 +3,7 @@ from flask.cli import FlaskGroup
 
 from cp_backend.app import create_app
 
-from cp_backend.generators import load_users, load_rentals
+from cp_backend.generators import load_users, load_rentals, load_routes, load_cars, load_drivers
 
 
 def create_cp_backend(info):
@@ -25,8 +25,11 @@ def init():
     db.create_all()
     click.echo("done")
 
-    load_users(db, click)
+    #load_users(db, click)
     load_rentals(db, click)
+    load_routes(db, click)
+    load_cars(db, click)
+    load_drivers(db, click)
 
 if __name__ == "__main__":
     cli()

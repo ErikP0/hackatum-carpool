@@ -1,5 +1,8 @@
 from .user import UserResource, UserList
-from .rentals import RentalResource, RentalList, FutureRentalByUser
+from .rentals import RentalResource, RentalList, RentalByUser
+from .carpools import CarPoolResource, CarPoolList
+from .ratings import DriverRatingList, DriverRatingResource
+from .ratings import PassengerRatingList, PassengerRatingResource
 
 
 __all__ = [
@@ -7,5 +10,11 @@ __all__ = [
     'UserList',
     'RentalResource',
     'RentalList',
-    'FutureRentalByUser'
+    'RentalByUser',
+    'CarPoolResource',
+    'CarPoolList',
+    'DriverRatingList',
+    'DriverRatingResource',
+    'PassengerRatingList',
+    'PassengerRatingResource'
 ]

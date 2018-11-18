@@ -1,0 +1,101 @@
+car_id;name;type;full_price;purchase_date;rental_price_day;avg_cost_day
+1;Chrysler Dodge Caravan;Minivans;18640;05/04/2016;170;50
+2;Honda Odyssey;Minivans;85042;20/05/2016;80;20
+3;Chrysler Town & Country;Minivans;41525;23/05/2016;80;20
+4;Toyota Sienna;Minivans;48035;02/06/2016;60;20
+5;Kia Sedona;Minivans;47341;13/06/2016;150;50
+6;Chevrolet Uplander;Minivans;19054;13/07/2016;100;30
+7;Ford Freestar;Minivans;44585;16/08/2016;60;20
+8;Nissan Quest;Minivans;25886;12/09/2016;70;20
+9;Pontiac Montana;Minivans;63384;30/09/2016;120;40
+10;Volkswagen Routan;Minivans;91284;24/10/2016;50;20
+11;Ford F-Series;Trucks;83004;26/10/2016;90;30
+12;Chevrolet Silverado;Trucks;26174;06/12/2016;40;10
+13;Dodge Ram;Trucks;85759;02/01/2017;180;50
+14;GMC Sierra;Trucks;65390;05/01/2017;80;20
+15;Toyota Tacoma;Trucks;66191;06/01/2017;120;40
+16;Toyota Tundra;Trucks;83195;19/01/2017;70;20
+17;Ford Ranger;Trucks;25530;27/01/2017;130;40
+18;Chevrolet Colorado;Trucks;86745;08/02/2017;170;50
+19;Nissan Frontier;Trucks;28170;14/03/2017;100;30
+20;Chevrolet Avalanche;Trucks;14229;18/04/2017;50;20
+21;Honda Civic Coupe;Economy Cars;31582;27/06/2017;130;40
+22;Ford Focus;Economy Cars;24249;11/08/2017;90;30
+23;Volkswagen Rabbit;Economy Cars;41568;20/09/2017;80;20
+24;Kia Soul;Economy Cars;69078;17/11/2017;10;0
+25;Smart Fortwo Coupe;Economy Cars;36068;15/12/2017;30;10
+26;Chevrolet Cobalt;Economy Cars;16816;05/01/2016;190;60
+27;Mini Cooper;Economy Cars;12803;18/01/2016;110;30
+28;Subaru Impreza;Economy Cars;48439;18/02/2016;190;60
+29;Toyota Yaris Hatchback;Economy Cars;50524;02/03/2016;110;30
+30;Scion XD Hatchback;Economy Cars;66390;13/04/2016;140;40
+31;Toyota Prius;Hybrid Vehicles;17004;17/06/2016;50;20
+32;Honda Insight;Hybrid Vehicles;12724;22/08/2016;170;50
+33;Ford Fusion Hybrid;Hybrid Vehicles;31043;02/09/2016;40;10
+34;Lexus RX 450h;Hybrid Vehicles;89575;26/09/2016;70;20
+35;Toyota Camry Hybrid;Hybrid Vehicles;83400;29/09/2016;130;40
+36;Ford Escape Hybrid;Hybrid Vehicles;69768;07/12/2016;150;50
+37;Lexus HS 250h;Hybrid Vehicles;13989;30/01/2017;60;20
+38;Honda Civic Hybrid;Hybrid Vehicles;24320;06/02/2017;140;40
+39;Toyota Highlander Hybrid;Hybrid Vehicles;89814;02/03/2017;100;30
+40;Nissan Altima Hybrid;Hybrid Vehicles;90920;03/03/2017;130;40
+41;Volkswagen Jetta;Mid-Sized Sedans;12443;20/04/2017;30;10
+42;Nissan Maxima;Mid-Sized Sedans;58552;25/05/2017;160;50
+43;Mazda 6;Mid-Sized Sedans;62582;13/06/2017;80;20
+44;Subaru Legacy;Mid-Sized Sedans;63296;22/06/2017;40;10
+45;Buick LaCrosse CXS;Mid-Sized Sedans;84484;12/07/2017;50;20
+46;Ford Taurus;Mid-Sized Sedans;43126;26/07/2017;50;20
+47;Hyundai Genesis;Mid-Sized Sedans;81899;11/09/2017;60;20
+48;Acura TL;Mid-Sized Sedans;70856;05/10/2017;70;20
+49;Audi A6;Mid-Sized Sedans;34065;19/12/2017;50;20
+50;Mercedes-Benz E550;Mid-Sized Sedans;98678;26/12/2017;180;50
+51;Honda CR-V;Utility Vehicles;8048;15/01/2016;190;60
+52;Toyota RAV4;Utility Vehicles;33599;12/02/2016;60;20
+53;Ford Escape;Utility Vehicles;74684;22/02/2016;90;30
+54;Chevrolet Equinox;Utility Vehicles;70000;21/03/2016;120;40
+55;Jeep Grand Cherokee;Utility Vehicles;65302;16/05/2016;150;50
+56;Kia Sorento;Utility Vehicles;52792;02/06/2016;50;20
+57;Ford Edge;Utility Vehicles;85406;20/06/2016;180;50
+58;Chevrolet Traverse;Utility Vehicles;49214;30/06/2016;70;20
+59;Toyota Highlander;Utility Vehicles;83460;18/07/2016;90;30
+60;Nissan Rogue;Utility Vehicles;21474;27/07/2016;20;10
+61;Ford Mustang;Sports Cars;92349;02/09/2016;120;40
+62;Chevrolet Camaro;Sports Cars;17011;05/09/2016;60;20
+63;Pontiac Trans Am;Sports Cars;42326;11/10/2016;50;20
+64;Chevrolet Corvette;Sports Cars;22228;07/12/2016;50;20
+65;Dodge Viper;Sports Cars;21815;14/12/2016;150;50
+66;Dodge Challenger;Sports Cars;49968;19/12/2016;180;50
+67;Plymouth Prowler;Sports Cars;39289;02/01/2017;180;50
+68;American Motors AMX;Sports Cars;84236;25/01/2017;160;50
+69;Chrysler Eagle;Sports Cars;63819;07/06/2017;170;50
+70;Pontiac Firebird;Sports Cars;10944;12/06/2017;70;20
+71;BMW 3-Series;Luxury Cars;35673;10/07/2017;150;50
+72;Lexus RX;Luxury Cars;81138;04/08/2017;190;60
+73;Mercedes E-Class;Luxury Cars;89934;20/09/2017;80;20
+74;Cadillac SRX;Luxury Cars;32336;14/12/2017;50;20
+75;Acura MDX;Luxury Cars;96743;27/12/2017;110;30
+76;Infiniti G;Luxury Cars;28168;01/01/2016;80;20
+77;Audi A4;Luxury Cars;17780;02/02/2016;70;20
+78;Lincoln MKZ;Luxury Cars;58647;04/02/2016;60;20
+79;Volvo XC60;Luxury Cars;17492;23/03/2016;190;60
+80;Jaguar XK;Luxury Cars;44667;28/04/2016;180;50
+81;Ford E-Series;Cargo Vans;75183;07/07/2016;120;40
+82;Chevrolet Express;Cargo Vans;14378;19/07/2016;60;20
+83;GMC Savana;Cargo Vans;61412;08/08/2016;140;40
+84;Dodge Sprinter;Cargo Vans;62424;30/08/2016;50;20
+85;Chevrolet Astro;Cargo Vans;38222;21/09/2016;120;40
+86;Dodge Ram;Cargo Vans;78086;19/10/2016;100;30
+87;Chevrolet G-Series;Cargo Vans;62418;11/11/2016;60;20
+88;GMC Safari;Cargo Vans;75512;07/12/2016;150;50
+89;GMC Spartan;Cargo Vans;17543;21/02/2017;110;30
+90;Ford Econoline;Cargo Vans;53636;04/04/2017;180;50
+91;BMW Mini;Mini Cars;47398;11/05/2017;110;30
+92;Ford Fiesta;Mini Cars;61810;18/07/2017;90;30
+93;Audi A1;Mini Cars;10268;14/08/2017;110;30
+94;Toyota Yaris;Mini Cars;21952;17/08/2017;170;50
+95;Alfa Romeo MiTo;Mini Cars;50219;06/09/2017;190;60
+96;Mazda2;Mini Cars;23602;13/09/2017;140;40
+97;Peugeot 207;Mini Cars;23331;19/09/2017;70;20
+98;Volkswagen Polo;Mini Cars;83711;22/09/2017;110;30
+99;Fiat Punto;Mini Cars;65521;23/10/2017;50;20
+100;Opel Corsa;Mini Cars;20569;09/11/2017;100;30

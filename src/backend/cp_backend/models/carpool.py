@@ -10,6 +10,10 @@ class CurrencyType(enum.Enum):
     EURO = "€"
     DOLLAR = "$"
 
+class RoleType(enum.Enum):
+    DRIVER = "driver"
+    PASSENGER = "passenger"
+
 class CarPool(db.Model):
     """
     Model of shared trip via car pooling
@@ -33,7 +37,6 @@ class CarPool(db.Model):
         super(CarPool, self).__init__(**kwargs)
 
     def validate(self):
-        pdb.set_trace()
         result = requests.get("{0}/rentals/{1}".format("http://localhost:5000/api/v1", self.rental_id))
 
         if result.status_code != 200:
@@ -58,15 +61,33 @@ class CarPoolParticipant(db.Model):
     """
     Model of all car pool participants (e.g. driver + passengers)
     """
-    __tablename__ = "carpool_participants"
-    __table_args__ = {}
 
     id = db.Column(db.Integer, primary_key=True)
     participant_id = db.Column(db.Integer, primary_key=True)
-    role = db.Column(db.Integer, nullable=False)
+    role = db.Column(db.Enum(RoleType), nullable=False)
+    fare = db.Column(db.Float(precision=2), nullable=False)
+    fare_currency = db.Column(db.Enum(CurrencyType), nullable=False)
 
-#class CarPoolRequest(db.Model):
-    #"""
-    #Model of open requests to join a car pool
-    #"""
-    #pass
+    __tablename__ = "carpool_participants"
+    __table_args__ = (
+        db.ForeignKeyConstraint(["participant_id"], ["user.id"]),
+    )
+
+    #TODO: logic for adding passengers
+
+class CarPoolRequest(db.Model):
+    """
+    Model of open requests to join a car pool
+    """
+
+    id = db.Column(db.Integer, primary_key=True)
+    requested_pool = db.Column(db.Integer, db.ForeignKey("carpools.id"))
+    requester_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    pick_up_lng = db.Column(db.String())
+    pick_up_lat = db.Column(db.String())
+    drop_off_lng = db.Column(db.String())
+    drop_off_lat = db.Column(db.String())
+
+    __tablename__ = "carpool_requests"
+
+    #TODO: logic for accepting/declining

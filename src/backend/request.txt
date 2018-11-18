@@ -1,0 +1,13 @@
+POST http://localhost:5000/api/v1/carpools
+
+{
+    "id": 1,
+    "created_by": 1,
+    "start_date": "",
+    "end_date": "",
+    "car_model": "BMW Model i8",
+    "max_seats": 1,
+    "rental_id": "deadbeef",
+    "buy_in": 25.00
+    "buy_in_currency": "€"
+}

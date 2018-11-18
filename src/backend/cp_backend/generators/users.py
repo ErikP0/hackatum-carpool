@@ -4,9 +4,11 @@ def load_users(db, click):
     click.echo("create user")
 
     user = User(
-        username='admin',
-        email='admin@mail.com',
-        password='admin',
+        username="Christian.Schaum",
+        first_name="Christian",
+        last_name="Schaum",
+        email="christian@example.org",
+        password="christian",
         active=True
     )
     db.session.add(user)

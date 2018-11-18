@@ -21,6 +21,7 @@ python-dateutil = "*"
 
 [dev-packages]
 pylint = "*"
+rope = "*"
 
 [requires]
 python_version = "3.6"
