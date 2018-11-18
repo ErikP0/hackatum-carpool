@@ -23,9 +23,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        repository = Repository.getInstance(AppDatabase.getInstance(applicationContext))
+        val db = AppDatabase.getInstance(applicationContext)
+        repository = Repository.getInstance(db)
 
-        repository.clearCarRentalDb().subscribe {
+        repository.clearCarRentalDb().subscribeOn(Schedulers.io()).subscribe {
             Log.d(TAG, "carRentalDb is cleared ")
             debugAddRentals()
         }
@@ -68,10 +69,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun debugAddRentals() {
-        val carpoolOfferDummy = CarpoolOffer.dummy(0, 0)
-        repository.addMyRental(CarRental.dummy(1)).subscribeOn(Schedulers.io()).subscribe { Log.d(TAG, "car rental 1 is inserted ") }
-        repository.addMyRental(CarRental.dummy(2)).subscribeOn(Schedulers.io()).subscribe { Log.d(TAG, "car rental 2 is inserted ") }
-        repository.addMyRental(CarRental.dummy(3)).subscribeOn(Schedulers.io()).subscribe { Log.d(TAG, "car rental 3 is inserted ") }
+        val carpoolOfferDummy = CarpoolOffer.dummy(0, 2)
+        repository.addMyRental(CarRental.dummy(1)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 1 is inserted ") }
+        repository.addMyRental(CarRental.dummy(2)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 2 is inserted ") }
+        repository.addMyRental(CarRental.dummy(3)).subscribeOn(Schedulers.io())
+            .subscribe { Log.d(TAG, "car rental 3 is inserted ") }
         repository.addMyRental(CarRental.dummy(0))
             .subscribeOn(Schedulers.io())
             .doOnError { t -> Log.d(TAG, "added error: ", t) }
@@ -83,12 +87,14 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    private fun addRentalOffer() {
-
-    }
-
     private fun debugShowAllRentalsLog() {
-        repository.getMyRentalsAll().subscribeOn(Schedulers.io()).subscribe { it.forEach { Log.d(TAG, "all rentals: " + it + "\n") } }
+        repository.getMyRentalsAll().subscribeOn(Schedulers.io()).subscribe { it -> Log.d(TAG, "all rentals: " + it + "\n") }
+        repository.getPairsOfRentalsAndOffers(includeNull = true).subscribeOn(Schedulers.io()).subscribe { it ->
+            Log.d(TAG, "all pairs: " + it + "\n\n\n")
+        }
+//        repository.getPairsOfRentalsAndOffers(includeNull = false).subscribeOn(Schedulers.io()).subscribe { it ->
+//            Log.d(TAG, "only offers as pairs: " + it)
+//        }
     }
 
     companion object {
