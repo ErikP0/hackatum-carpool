@@ -21,17 +21,20 @@ Our app consists in three parts:
 3rd: a back-end database that collects all information and comunicates with Sixt services
 
 ## How we built it
-We used AWS as our hosting environment for back-end server. The programm is wroten in python. The application for the user is implemented in Kotlin and Java using android studio. The website for visualizing data is programmed with HTML/Javascript.
 
 We divided our team with two people responsible for the phone app, one person for the back end development, one for the web app development and one responsible for the dashboards.
 
 ## Challenges we ran into
-* Combine application with tableau api
 
+Brainstorming all the features we would need, dividing tasks properly to optimize time, Learning how to use Sixt's APIs, trying out different designs, coming up with consistent mock data to test all features.
 
-## Accomplishments that I'm proud of
+## Accomplishments that we are proud of
+
+We are proud of, firt of all, completing the challenge. Independent from the outcome, everyone of our team members got to either learn something new or practice their existing skills. In the mean time, even with the pressure, we managed to have fun with all parts of the development process. Our final app exceeded our expectations, offering both an attractive design and great user experience, all backed up by a strong business case for our work.
 
 ## What we learned
 
+The main skill everyone got to train is how to work in a diverse team, with every member having their own strong points, and how to conciliate everything to come up with a good product.
+
 ## What's next for Orange is a new sharing
- ML, AI, Blockchain and so on
+ ML, AI, Blockchain and so on...just kidding. The next step would be to reevaluate the business case with the company and see how can we build on top of what we already have to make our service come to life!
