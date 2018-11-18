@@ -14,10 +14,18 @@ Our inspiration came by brainstorming our different problems when looking for op
 
 ## What it does
 
+Our app consists in three parts: 
+
+1st: a front-end phone app that enables the car pooling option when renting a car through Sixt
+2nd: a front-end web app that displays for the users the data collected in form of dashboards for the users, to see their trips and rating and for management, that can analyse all information related to this new service to make business decisions.
+3rd: a back-end database that collects all information and comunicates with Sixt services
 
 ## How we built it
 
+We divided our team with two people responsible for the phone app, one person for the back end development, one for the web app development and one responsible for the dashboards.
+
 ## Challenges we ran into
+
 
 ## Accomplishments that I'm proud of
 
