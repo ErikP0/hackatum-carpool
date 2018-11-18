@@ -14,17 +14,20 @@ Our inspiration came by brainstorming our different problems when looking for op
 
 ## What it does
 
-The driver has rented a car; wants to go from A to B at time X; wants to split costs by carpooling. He enters the information about the journey open the journey to the public carpool.
+Our app consists in three parts: 
 
-The passenger can input his position and destination to search in the public pool, whether there is a public router that helps him to get to his destination.  
-
-The driver can decide whether he will give the passenger a ride or not.
+1st: a front-end phone app that enables the car pooling option when renting a car through Sixt
+2nd: a front-end web app that displays for the users the data collected in form of dashboards for the users, to see their trips and rating and for management, that can analyse all information related to this new service to make business decisions.
+3rd: a back-end database that collects all information and comunicates with Sixt services
 
 ## How we built it
 We used AWS as our hosting environment for back-end server. The programm is wroten in python. The application for the user is implemented in Kotlin and Java using android studio. The website for visualizing data is programmed with HTML/Javascript.
 
+We divided our team with two people responsible for the phone app, one person for the back end development, one for the web app development and one responsible for the dashboards.
+
 ## Challenges we ran into
 * Combine application with tableau api
+
 
 ## Accomplishments that I'm proud of
 
