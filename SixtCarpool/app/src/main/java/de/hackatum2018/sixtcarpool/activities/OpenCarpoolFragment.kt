@@ -6,8 +6,6 @@ import android.app.TimePickerDialog
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +16,7 @@ import de.hackatum2018.sixtcarpool.R
 import de.hackatum2018.sixtcarpool.Repository
 import de.hackatum2018.sixtcarpool.database.AppDatabase
 import de.hackatum2018.sixtcarpool.subscribeInLifecycle
+import de.hackatum2018.sixtcarpool.utils.TextChangedListener
 import de.hackatum2018.sixtcarpool.viewmodels.OpenCarpoolViewModel
 import kotlinx.android.synthetic.main.fragment_open_carpool.view.*
 import java.text.DateFormat
@@ -159,11 +158,3 @@ class OpenCarpoolFragment : Fragment() {
     }
 }
 
-private class TextChangedListener(private val onTextChangedListener: (Editable?) -> Unit) : TextWatcher {
-    override fun afterTextChanged(p0: Editable?) {
-        onTextChangedListener(p0)
-    }
-
-    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-}

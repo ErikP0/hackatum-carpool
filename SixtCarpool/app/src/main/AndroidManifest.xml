@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="de.hackatum2018.sixtcarpool">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -21,6 +21,8 @@
         <activity
                 android:name=".activities.OpenCarpoolActivity"
                 android:label="Open to Carpool">
+        </activity>
+        <activity android:name=".activities.SearchCarpoolResultActivity">
         </activity>
     </application>
 

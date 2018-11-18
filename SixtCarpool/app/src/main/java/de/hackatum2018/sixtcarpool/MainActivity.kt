@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import de.hackatum2018.sixtcarpool.activities.DashboardFragment
 import de.hackatum2018.sixtcarpool.activities.RentalListFragment
+import de.hackatum2018.sixtcarpool.activities.SearchCarpoolFragment
 import de.hackatum2018.sixtcarpool.database.AppDatabase
 import de.hackatum2018.sixtcarpool.database.entities.CarRental
 import de.hackatum2018.sixtcarpool.util.commonSchedulers
@@ -50,6 +51,9 @@ class MainActivity : AppCompatActivity() {
                     RentalListFragment.newInstance(),
                     "My rentals"
                 )
+            }
+            R.id.menu_my_carpool -> fragments.computeIfAbsent(R.id.menu_my_carpool) {
+                FragmentInfo(SearchCarpoolFragment.newInstance(), "Search for Carpool")
             }
             R.id.menu_dashboard -> fragments.computeIfAbsent(R.id.menu_dashboard) {
                 FragmentInfo(DashboardFragment.newInstance(), "Dashboard")
