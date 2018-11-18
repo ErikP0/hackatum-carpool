@@ -15,7 +15,3 @@ fun <T> Flowable<T>.commonSchedulers(): Flowable<T> {
 fun Completable.commonSchedulers(): Completable {
     return this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }
-
-fun Unit.makeCompletable(): Completable {
-    return Completable.fromCallable { }.commonSchedulers()
-}

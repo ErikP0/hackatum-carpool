@@ -71,6 +71,8 @@ class RentalListFragment : Fragment() {
                     intent.putExtra(OpenCarpoolActivity.RENTAL_ID, myCarRental.id)
                     startActivity(intent)
                 }
+
+                carpooledCheck.visibility = if (myCarRental.isOffered) View.VISIBLE else View.GONE
             }
         )
         list.adapter = adapter
@@ -98,4 +100,5 @@ private class MyCarRentalViewHolder(val card: View) : RecyclerView.ViewHolder(ca
     val endDateText = card.car_list_content_end_date
     val pickupLocationText = card.car_list_content_pickup
     val returnLocationText = card.car_list_content_return
+    val carpooledCheck = card.car_list_content_carpool_check
 }

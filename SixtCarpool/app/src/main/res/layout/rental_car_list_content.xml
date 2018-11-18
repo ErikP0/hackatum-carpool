@@ -67,6 +67,15 @@
                     android:textAlignment="viewEnd"/>
         </LinearLayout>
 
+        <CheckedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:checkMark="@drawable/ic_airport_shuttle_black_24dp"
+                android:layout_margin="4dp"
+                android:text="In Carpool"
+                android:id="@+id/car_list_content_carpool_check"/>
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

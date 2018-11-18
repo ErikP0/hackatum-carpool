@@ -10,8 +10,8 @@ class OpenCarpoolActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_carpool)
 
-        val id = intent.getIntExtra(RENTAL_ID, 0)
-        if (id == 0) {
+        val id = intent.getIntExtra(RENTAL_ID, -1)
+        if (id == -1) {
             throw IllegalArgumentException("Expected rental id")
         }
 

@@ -15,17 +15,17 @@ abstract class CarRentalDao : BaseDao<CarRental>() {
     @Query("SELECT * FROM " + CarRental.TABLE_NAME)
     abstract fun getAll(): Flowable<List<CarRental>>
 
-    @Query("SELECT * FROM " + CarRental.TABLE_NAME + " WHERE id = :id")
+    @Query("SELECT * FROM " + CarRental.TABLE_NAME + " WHERE " + CarRental.ID + " = :id LIMIT 1")
     abstract fun getById(id: Int): Flowable<CarRental?>
+
+    @Query("UPDATE " + CarRental.TABLE_NAME + " SET " + CarRental.CARPOOL_OFFER_ID + " =:carpoolOfferId WHERE " + CarRental.ID + " =:carId")
+    abstract fun linkCarToOffer(carId: Int, carpoolOfferId: Int)
 
     @Query("DELETE FROM " + CarRental.TABLE_NAME)
     abstract fun deleteAll()
 
-    @Query("DELETE FROM " + CarRental.TABLE_NAME + " WHERE id = :id")
+    @Query("DELETE FROM " + CarRental.TABLE_NAME + " WHERE " + CarRental.ID + " = :id")
     abstract fun deleteById(id: String)
-
-//    @Query("UPDATE " + CarRental.TABLE_NAME + " SET carpoolOffer = :carpoolOffer  WHERE id = :id")
-//    abstract fun setCarpoolOffer(id: Int, carpoolOffer: CarpoolOffer)
 
     @Transaction
     open fun cleanUpdate(list: List<CarRental>) {
