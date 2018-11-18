@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <ImageView
+                android:id="@+id/carpool_offer_list_model_image"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:src="@drawable/car_model"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/carpool_offer_list_name"
+                tools:text="Model Name"
+                android:layout_margin="4dp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/carpool_offer_list_begin_datetime"
+                tools:text="Start: 15.12.18 15:00"/>
+
+        <LinearLayout
+                android:layout_margin="4dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/carpool_offer_list_start"
+                    tools:text="Start: Hauptstraße 1, 43254 München"/>
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/carpool_offer_list_end"
+                    tools:text="End: Landstraße 333, 324234 Berlin"
+                    android:textAlignment="viewEnd"/>
+        </LinearLayout>
+
+        <TextView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2/4 passengers"
+                android:id="@+id/carpool_offer_list_passenger_info"/>
+
+        <TextView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50€"
+                android:id="@+id/carpool_offer_list_price"
+                android:textAlignment="viewEnd"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
