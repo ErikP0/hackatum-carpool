@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CarPool</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="js/tableauTest.js"></script>
+
+    <script>
+        $(function () {
+            changeDashboard(user);
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class='header-top'>
+        <div class="header">
+            <img src="img/sixt_logo_horizontal_white.svg" alt="Mietwagen von der Autovermietung Sixt" height="64px">
+        </div>
+    </div>
+
+    <div class='control-bar-left' id='channels'>
+        <ul>
+            <!--<li id='driver' onclick="changeDashboard(driver)">Driver</li>-->
+            <li id='user' onclick="changeDashboard(user)">User</li>
+            <li id='staff' onclick="changeDashboard(staff)">Staff</li>
+        </ul>
+    </div>
+
+    <div class='container-right'>
+
+        <div class='tableauPlaceholder' id='dashboard' style='position: relative'>
+            <noscript>
+                <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1_rss.png'
+                        style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='Sixt_Dashboards&#47;User' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Sixt_Dashboards&#47;User&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+            </object>
+        </div>
+    </div>
+
+</body>
+
+</html>
